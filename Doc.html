@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .Cont_Aniket {
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .Cont_Aniket >div:nth-child(1) {
+            width: 200px;
+            height: auto;
+            
+            padding-top: 80px;
+        }
+
+        .Cont_Aniket > div:nth-child(1) > ul li {
+            list-style-type: none;
+            padding: 5px 0;
+        }
+
+        .Cont_Aniket > div:nth-child(1) > ul li a {
+            text-decoration: none;
+            color: var(--link-color);
+        }
+
+        .Cont_Aniket > div:nth-child(2) {
+            width: 700px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .syntax-box {
+            background-color: var(--syntax-box-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        .syntax-header {
+            background-color: var(--syntax-header-bg);
+            color: var(--syntax-header-color);
+            padding: 8px 16px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copy-button {
+            background-color: var(--button-bg);
+            color: var(--button-color);
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .copy-button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        pre {
+            margin: 0;
+            padding: 16px;
+            background-color: var(--pre-bg);
+            overflow-x: auto;
+        }
+
+        code {
+            color: var(--code-color);
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+            white-space: pre;
+        }
+
+        .Run_Aniket > a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .Run_Aniket {
+            color: #fff;
+            padding: 7px 15px;
+            background-color: rgb(47, 47, 248);
+            border-radius: 8px;
+        }
+
+        /* Light Mode Variables */
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --link-color: #007bff;
+            --syntax-box-bg: #f5f5f5;
+            --syntax-header-bg: #eaeaea;
+            --syntax-header-color: #333;
+            --button-bg: #ddd;
+            --button-color: #333;
+            --button-hover-bg: #ccc;
+            --pre-bg: #ffffff;
+            --code-color: #333;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --link-color: #82aaff;
+            --syntax-box-bg: #2d2d2d;
+            --syntax-header-bg: #252526;
+            --syntax-header-color: #d7ba7d;
+            --button-bg: #444;
+            --button-color: #d7ba7d;
+            --button-hover-bg: #666;
+            --pre-bg: #1e1e1e;
+            --code-color: #d4d4d4;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container text-end my-3">
+            <label for="themeToggle" class="form-label">Light/Dark Mode</label>
+            <input type="checkbox" id="themeToggle" class="form-check-input">
+        </div>
+    </nav>
+    <div class="Cont_Aniket container-xxl">
+        <div>
+            <ul>
+                <h3>Tutorials</h3>
+                <li><a href="">Introduction</a></li>
+                <li><a href="">Array</a></li>
+                <li><a href="">String</a></li>
+                <li><a href="">Conditional Operator</a></li>
+                <li><a href="">Loop</a></li>
+            </ul>
+        </div>
+        <div>
+            <p>
+                In the following code, the function receives a function defined by a function expression and executes it for every element of the array received as a second argument:
+            </p>
+            <div class="syntax-box">
+                <div class="syntax-header">
+                    JS
+                    <div>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        <span class="Run_Aniket"><a href="">Try Yourself</a></span>
+                    </div>
+                </div>
+                <pre><code class="language-javascript">
+async function name(param0) {
+    // statements
+}
+
+async function name(param0, param1) {
+    // statements
+}
+
+async function name(param0, param1, /* … */ paramN) {
+    // statements
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.closest('.syntax-box').querySelector('code').innerText;
+            navigator.clipboard.writeText(codeBlock).then(() => {
+                button.innerText = 'Copied!';
+                setTimeout(() => {
+                    button.innerText = 'Copy';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        const toggleSwitch = document.getElementById('themeToggle');
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const darkMode = localStorage.getItem('dark-mode');
+            if (darkMode === 'enabled') {
+                document.body.classList.add('dark-mode');
+                toggleSwitch.checked = true;
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+
+        toggleSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
+    </script>
+</body>
+</html>
