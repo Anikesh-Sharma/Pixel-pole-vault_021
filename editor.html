@@ -7,10 +7,8 @@
     <title>Live Code Editor</title>
     <link rel="stylesheet" href="./editor.css">
     <script src="https://kit.fontawesome.com/14dc840376.js" crossorigin="anonymous"></script>
-    <!-- Prism.js for syntax highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-javascript.min.js"></script>
+
+ 
     
 </head>
 
@@ -18,17 +16,18 @@
     <div class="container">
         <div class="left">
             <label for="html-code" class="editor-label">
-                <i class="fa-brands fa-html5"></i> HTML
+                <i class="fa-brands fa-html5" style="color: #cc3419"></i> HTML
             </label>
             <textarea id="html-code" onkeyup="run()" class="language-html"></textarea>
 
             <label for="css-code" class="editor-label">
-                <i class="fa-brands fa-css3-alt"></i> CSS
+                <i class="fa-brands fa-css3-alt" style="color: #5c6db9"></i>CSS
             </label>
             <textarea id="css-code" onkeyup="run()" class="language-css"></textarea>
 
             <label for="js-code" class="editor-label">
-                <i class="fa-brands fa-js"></i> JavaScript
+                <i class="fa-solid fa-v" style="color: #ff00bb;"></i>
+                 VisionScript
             </label>
             <textarea id="js-code" onkeyup="run()" class="language-javascript"></textarea>
         </div>
@@ -37,7 +36,7 @@
 
         <div class="right">
             <label for="output" class="editor-label">
-                <i class="fa-solid fa-play"></i> Output
+                <i class="fa-solid fa-play" style="color: #007419"></i>Output
             </label>
             <iframe id="output"></iframe>
             <label for="console">console</label>
@@ -45,7 +44,6 @@
         </div>
     </div>
 
-   
 </body>
 
 </html>
