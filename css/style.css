@@ -441,3 +441,140 @@
     padding-right: 0;
     border-right: none;
 }
+/* Enhanced form styling */
+.form-box {
+    max-width: 600px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Interactive border effect */
+.form-box:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #007bff, #00d4ff, #28a745, #ffc107);
+    z-index: -1;
+    border-radius: 15px;
+    background-size: 300% 300%;
+    animation: borderAnimation 6s ease infinite;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* Hover effect for form */
+.form-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .form-box {
+    background-color: #1e1e1e;
+    border-color: #333;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .form-box:before {
+    background: linear-gradient(45deg, #1a73e8, #00acc1, #66bb6a, #ffeb3b);
+}
+
+body.dark-mode input,
+body.dark-mode textarea {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode a {
+    color: #1a73e8;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #135ba1;
+    border-color: #135ba1;
+}
+
+/* Smooth transitions for buttons */
+.btn-lg {
+    padding: 12px 20px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.btn-lg:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .form-box {
+        width: 90%;
+        padding: 30px;
+    }
+}
+body.vision-dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.navbar.vision-dark-mode {
+    background-color: #333333;
+}
+
+.footer.vision-dark-mode {
+    background-color: #222222;
+}
+
+.btn-outline-light.vision-dark-mode {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.form-control.vision-dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+    border-color: #444444;
+}
+
+.hero-header.vision-dark-mode {
+    background-color: #1a1a1a;
+}
+
+.service-item.vision-dark-mode {
+    background-color: #1f1f1f;
+}
+
+.service-item.vision-dark-mode p,
+.service-item.vision-dark-mode h5 {
+    color: #ffffff;
+}
