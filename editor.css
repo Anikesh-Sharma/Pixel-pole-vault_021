@@ -91,7 +91,7 @@ iframe {
     height: 100%;
     border: 1px solid #555;
     border-radius: 4px;
-    background-color: #1e1e1e;
+    background-color: #ffffff;
     transition: border-color 0.3s ease;
 }
 
@@ -144,10 +144,11 @@ iframe {
 #console {
     border: 1px solid #555;
     padding: 10px;
-    color: #e0e0e0;
+    color: #333;
     height: 200px;
     overflow-y: auto;
-    background-color: #333;
+    background-color:  #e0e0e0;
+  
     border-radius: 4px;
     transition: border-color 0.3s ease;
 }
