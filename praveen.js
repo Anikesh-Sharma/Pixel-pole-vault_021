@@ -299,17 +299,7 @@ if (!Array.prototype.Filter) {
   
   // console.log(hasGreaterThanFour); // Output: true
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+// ----------------------------------------
   
   // string methoda
   
@@ -834,64 +824,64 @@ if (!Array.prototype.Filter) {
   
   
   
-    const Input = {
-      // Method to get user input from a prompt
-      bhaiPromptInput: function(message) {
-        if (typeof message !== 'string') {
-          throw new TypeError('Message must be a string');
-        }
+    // const Input = {
+    //   // Method to get user input from a prompt
+    //   bhaiPromptInput: function(message) {
+    //     if (typeof message !== 'string') {
+    //       throw new TypeError('Message must be a string');
+    //     }
     
-        // Prompt user for input with a custom message
-        return prompt(message);
-      },
+    //     // Prompt user for input with a custom message
+    //     return prompt(message);
+    //   },
     
-      // Method to retrieve value from an input field by selector
-      GetInputValue: function(selector) {
-        if (typeof selector !== 'string') {
-          throw new TypeError('Selector must be a string');
-        }
+    //   // Method to retrieve value from an input field by selector
+    //   GetInputValue: function(selector) {
+    //     if (typeof selector !== 'string') {
+    //       throw new TypeError('Selector must be a string');
+    //     }
     
-        // Use Selector to find the input element
-        const inputElement = Selector.QuerySelector(selector);
+    //     // Use Selector to find the input element
+    //     const inputElement = Selector.QuerySelector(selector);
         
-        if (inputElement && inputElement.tagName === 'INPUT' || inputElement.tagName === 'TEXTAREA') {
-          return inputElement.value;
-        } else {
-          throw new Error('Element is not an input or textarea');
-        }
-      },
+    //     if (inputElement && inputElement.tagName === 'INPUT' || inputElement.tagName === 'TEXTAREA') {
+    //       return inputElement.value;
+    //     } else {
+    //       throw new Error('Element is not an input or textarea');
+    //     }
+    //   },
     
-      // Method to set value to an input field by selector
-      SetInputValue: function(selector, value) {
-        if (typeof selector !== 'string') {
-          throw new TypeError('Selector must be a string');
-        }
+    //   // Method to set value to an input field by selector
+    //   SetInputValue: function(selector, value) {
+    //     if (typeof selector !== 'string') {
+    //       throw new TypeError('Selector must be a string');
+    //     }
     
-        // Use Selector to find the input element
-        const inputElement = Selector.QuerySelector(selector);
+    //     // Use Selector to find the input element
+    //     const inputElement = Selector.QuerySelector(selector);
     
-        if (inputElement && (inputElement.tagName === 'INPUT' || inputElement.tagName === 'TEXTAREA')) {
-          inputElement.value = value;
-        } else {
-          throw new Error('Element is not an input or textarea');
-        }
-      },
+    //     if (inputElement && (inputElement.tagName === 'INPUT' || inputElement.tagName === 'TEXTAREA')) {
+    //       inputElement.value = value;
+    //     } else {
+    //       throw new Error('Element is not an input or textarea');
+    //     }
+    //   },
     
-      // Method to add an event listener to an input field
-      AddInputEventListener: function(selector, eventType, callback) {
-        if (typeof selector !== 'string' || typeof eventType !== 'string' || typeof callback !== 'function') {
-          throw new TypeError('Invalid arguments');
-        }
+    //   // Method to add an event listener to an input field
+    //   AddInputEventListener: function(selector, eventType, callback) {
+    //     if (typeof selector !== 'string' || typeof eventType !== 'string' || typeof callback !== 'function') {
+    //       throw new TypeError('Invalid arguments');
+    //     }
     
-        const inputElement = Selector.QuerySelector(selector);
+    //     const inputElement = Selector.QuerySelector(selector);
         
-        if (inputElement) {
-          inputElement.addEventListener(eventType, callback);
-        } else {
-          throw new Error('Element not found');
-        }
-      }
-    };
+    //     if (inputElement) {
+    //       inputElement.addEventListener(eventType, callback);
+    //     } else {
+    //       throw new Error('Element not found');
+    //     }
+    //   }
+    // };
     
   //   // Example usage:
     
