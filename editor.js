@@ -237,7 +237,7 @@ jsCode = parseMatrixLoops(jsCode);
 // Parse custom matrix syntax
 jsCode = parseCustomSyntax(jsCode); // Parse custom syntax for matrix creation
 
-fetch('functions.js')
+fetch('function.js')
     .then(response => response.text())
     .then(customPrototypes => {
         output.contentDocument.body.innerHTML = htmlCode + "<style>" + cssCode + "</style>";
