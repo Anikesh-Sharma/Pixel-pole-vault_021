@@ -92,3 +92,120 @@
     
 })(jQuery);
 
+window.addEventListener("load", function () {
+    document.getElementById("spinner").style.display = "none";
+    
+    // Check if a user is logged in
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      const { username } = JSON.parse(currentUser);
+      displayUsername(username);
+    }
+  });
+
+  // Toggle between login and signup forms
+  function toggleForm() {
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+
+    const isLoginHidden = loginForm.style.display === "none";
+    loginForm.style.display = isLoginHidden ? "block" : "none";
+    signupForm.style.display = isLoginHidden ? "none" : "block";
+  }
+
+  // Sign Up Functionality with Unique Email and Username
+  function signUp(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("signupUsername").value;
+    const email = document.getElementById("signupEmail").value;
+    const password = document.getElementById("signupPassword").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
+    // Check if email or username already exists
+    const isUserExists = Object.keys(localStorage).some((key) => {
+      if (key === "currentUser") return false;
+      const storedData = JSON.parse(localStorage.getItem(key));
+      return storedData.email === email || storedData.username === username;
+    });
+
+    if (isUserExists) {
+      alert("Email or Username already exists. Please try different credentials.");
+      return;
+    }
+
+    // Store user data
+    localStorage.setItem(email, JSON.stringify({ email, username, password }));
+    alert("Sign up successful. Please log in.");
+    toggleForm();
+  }
+
+  // Login Functionality
+  function logIn(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const storedData = JSON.parse(localStorage.getItem(email));
+
+    if (storedData && storedData.password === password) {
+      alert("Login successful!");
+      localStorage.setItem("currentUser", JSON.stringify(storedData));
+      displayUsername(storedData.username);
+      window.location.href = 'login.html'; // Redirect to login.html on successful login
+    } else {
+      alert("Invalid credentials. Please try again.");
+    }
+  }
+
+  // Display Username in Navbar
+  function displayUsername(username) {
+    document.getElementById("displayedUsername").textContent = username;
+    document.getElementById("usernameDisplay").style.display = "block";
+    document.getElementById("loginSignupLink").style.display = "none";
+  }
+
+  // Logout Functionality
+  function logOut() {
+    localStorage.removeItem("currentUser");
+    document.getElementById("usernameDisplay").style.display = "none";
+    document.getElementById("loginSignupLink").style.display = "block";
+    alert("You have logged out successfully.");
+    window.location.href = 'index.html'; // Redirect to home page or login page
+  }
+  
+  document.addEventListener("DOMContentLoaded", function () {
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    const elementsToToggle = [
+      document.body,
+      document.querySelector(".navbar"),
+      document.querySelector(".footer"),
+      document.querySelector(".hero-header"),
+      ...document.querySelectorAll(".btn-outline-light"),
+      ...document.querySelectorAll(".form-control"),
+      ...document.querySelectorAll(".service-item")
+    ];
+
+    // Check if dark mode was previously enabled
+    if (localStorage.getItem("visionDarkMode") === "enabled") {
+      toggleDarkMode(true);
+      darkModeToggle.checked = true;
+    }
+
+    darkModeToggle.addEventListener("change", function () {
+      toggleDarkMode(darkModeToggle.checked);
+    });
+
+    function toggleDarkMode(enable) {
+      elementsToToggle.forEach(el => {
+        el.classList.toggle("vision-dark-mode", enable);
+      });
+
+      localStorage.setItem("visionDarkMode", enable ? "enabled" : "disabled");
+    }
+  });

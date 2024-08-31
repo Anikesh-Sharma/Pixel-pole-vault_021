@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>VisionScript</title>
+    <title>Tourist - Travel Agency HTML Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -78,30 +78,30 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
-                    <a href="about.html" class="nav-item nav-link">About</a>
+                    <a href="about.html" class="nav-item nav-link">Editor</a>
                     <a href="service.html" class="nav-item nav-link">Documentation</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                    <a href="login.html" class="nav-item nav-link">Login</a>
+                    <a href="contact.html" class="nav-item nav-link">Our Team</a>
+                    <a href="login.html" class="nav-item nav-link">Login/Signup</a>
                 </div>
                 <!-- Dark/Light Mode Toggle -->
                 <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" id="darkModeToggle">
+                    <input class="form-check-input" type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
                     <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
                 </div>
             </div>
         </nav>
-        
-
         <div class="container-fluid bg-primary py-5 mb-5 hero-header">
             <div class="container py-5">
                 <div class="row justify-content-center py-5">
                     <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">Enjoy Your Vacation With Us</h1>
-                        <p class="fs-4 text-white mb-4 animated slideInDown">Tempor erat elitr rebum at clita diam amet diam et eos erat ipsum lorem sit</p>
-                        <div class="position-relative w-75 mx-auto animated slideInDown">
-                            <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="text" placeholder="Eg: Thailand">
-                            <button type="button" class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2" style="margin-top: 7px;">Search</button>
-                        </div>
+                        <h1 class="display-3 text-white animated slideInDown">Services</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">Services</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -361,75 +361,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-    const darkModeToggle = document.getElementById("darkModeToggle");
-    const body = document.body;
-    const navbar = document.querySelector(".navbar");
-    const footer = document.querySelector(".footer");
-    const buttons = document.querySelectorAll(".btn-outline-light");
-    const formControls = document.querySelectorAll(".form-control");
-    const heroHeader = document.querySelector(".hero-header");
-    const serviceItems = document.querySelectorAll(".service-item");
-
-    // Check if dark mode was previously enabled
-    if (localStorage.getItem("visionDarkMode") === "enabled") {
-        enableDarkMode();
-        darkModeToggle.checked = true;
-    }
-
-    darkModeToggle.addEventListener("change", function () {
-        if (darkModeToggle.checked) {
-            enableDarkMode();
-        } else {
-            disableDarkMode();
-        }
-    });
-
-    function enableDarkMode() {
-        body.classList.add("vision-dark-mode");
-        navbar.classList.add("vision-dark-mode");
-        footer.classList.add("vision-dark-mode");
-        heroHeader.classList.add("vision-dark-mode");
-
-        buttons.forEach(button => {
-            button.classList.add("vision-dark-mode");
-        });
-
-        formControls.forEach(control => {
-            control.classList.add("vision-dark-mode");
-        });
-
-        serviceItems.forEach(item => {
-            item.classList.add("vision-dark-mode");
-        });
-
-        localStorage.setItem("visionDarkMode", "enabled");
-    }
-
-    function disableDarkMode() {
-        body.classList.remove("vision-dark-mode");
-        navbar.classList.remove("vision-dark-mode");
-        footer.classList.remove("vision-dark-mode");
-        heroHeader.classList.remove("vision-dark-mode");
-
-        buttons.forEach(button => {
-            button.classList.remove("vision-dark-mode");
-        });
-
-        formControls.forEach(control => {
-            control.classList.remove("vision-dark-mode");
-        });
-
-        serviceItems.forEach(item => {
-            item.classList.remove("vision-dark-mode");
-        });
-
-        localStorage.setItem("visionDarkMode", "disabled");
-    }
-});
-
-    </script>
+    <script src="js/auth.js"></script>
 </body>
-
 </html>
