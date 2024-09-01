@@ -93,9 +93,10 @@
 })(jQuery);
 
 window.addEventListener("load", function () {
+  // Hide the spinner once the page is fully loaded
   document.getElementById("spinner").style.display = "none";
   
-  // Check if a user is logged in
+  // Check if a user is logged in and display the username if so
   const currentUser = localStorage.getItem("currentUser");
   if (currentUser) {
     const { username } = JSON.parse(currentUser);
