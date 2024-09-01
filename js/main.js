@@ -103,56 +103,68 @@ window.addEventListener("load", function () {
     }
   });
 
+  window.addEventListener("load", function () {
+    // Hide the spinner once the page is fully loaded
+    document.getElementById("spinner").style.display = "none";
+    
+    // Check if a user is logged in and display the username if so
+    const currentUser = localStorage.getItem("currentUser");
+    if (currentUser) {
+      const { username } = JSON.parse(currentUser);
+      displayUsername(username);
+    }
+  });
+  
   // Toggle between login and signup forms
   function toggleForm() {
     const loginForm = document.getElementById("loginForm");
     const signupForm = document.getElementById("signupForm");
-
+  
     const isLoginHidden = loginForm.style.display === "none";
     loginForm.style.display = isLoginHidden ? "block" : "none";
     signupForm.style.display = isLoginHidden ? "none" : "block";
   }
-
+  
   // Sign Up Functionality with Unique Email and Username
   function signUp(event) {
     event.preventDefault();
-
+  
     const username = document.getElementById("signupUsername").value;
     const email = document.getElementById("signupEmail").value;
     const password = document.getElementById("signupPassword").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
-
+  
     if (password !== confirmPassword) {
       alert("Passwords do not match.");
       return;
     }
-
+  
     // Check if email or username already exists
     const isUserExists = Object.keys(localStorage).some((key) => {
       if (key === "currentUser") return false;
       const storedData = JSON.parse(localStorage.getItem(key));
       return storedData.email === email || storedData.username === username;
     });
-
+  
     if (isUserExists) {
       alert("Email or Username already exists. Please try different credentials.");
       return;
     }
-
+  
     // Store user data
     localStorage.setItem(email, JSON.stringify({ email, username, password }));
     alert("Sign up successful. Please log in.");
     toggleForm();
   }
-
+  
   // Login Functionality
   function logIn(event) {
     event.preventDefault();
-
+  
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const storedData = JSON.parse(localStorage.getItem(email));
-
+  
     if (storedData && storedData.password === password) {
       alert("Login successful!");
       localStorage.setItem("currentUser", JSON.stringify(storedData));
@@ -162,14 +174,14 @@ window.addEventListener("load", function () {
       alert("Invalid credentials. Please try again.");
     }
   }
-
+  
   // Display Username in Navbar
   function displayUsername(username) {
     document.getElementById("displayedUsername").textContent = username;
     document.getElementById("usernameDisplay").style.display = "block";
     document.getElementById("loginSignupLink").style.display = "none";
   }
-
+  
   // Logout Functionality
   function logOut() {
     localStorage.removeItem("currentUser");
@@ -190,22 +202,23 @@ window.addEventListener("load", function () {
       ...document.querySelectorAll(".form-control"),
       ...document.querySelectorAll(".service-item")
     ];
-
+  
     // Check if dark mode was previously enabled
     if (localStorage.getItem("visionDarkMode") === "enabled") {
       toggleDarkMode(true);
       darkModeToggle.checked = true;
     }
-
+  
     darkModeToggle.addEventListener("change", function () {
       toggleDarkMode(darkModeToggle.checked);
     });
-
+  
     function toggleDarkMode(enable) {
       elementsToToggle.forEach(el => {
         el.classList.toggle("vision-dark-mode", enable);
       });
-
+  
       localStorage.setItem("visionDarkMode", enable ? "enabled" : "disabled");
     }
   });
+  
