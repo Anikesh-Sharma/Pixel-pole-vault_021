@@ -20,144 +20,7 @@
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        background-color: var(--background-color);
-        color: var(--text-color);
-        transition: background-color 0.3s, color 0.3s;
-      }
-
-      .Cont_Aniket {
-        height: auto;
-        display: flex;
-        justify-content: space-around;
-      }
-
-      .Cont_Aniket>div:nth-child(1) {
-        width: 200px;
-        height: 100vh;
-        padding-top: 0;
-        position: sticky;
-        top: 40px;
-        overflow-y: auto;
-        z-index: 1000
-      }
-
-      .Cont_Aniket > div:nth-child(1) > ul li {
-        list-style-type: none;
-        padding: 5px 0;
-      }
-      .Cont_Aniket > div:nth-child(1) > ul h3{
-        padding-bottom: 20px;
-      }
-
-      .Cont_Aniket > div:nth-child(1) > ul li a {
-        text-decoration: none;
-        color: var(--link-color);
-      }
-
-      .Cont_Aniket > div:nth-child(2) {
-        width: 700px;
-        margin: auto;
-        padding: 30px;
-      }
-
-      .syntax-box {
-        background-color: var(--syntax-box-bg);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        max-width: 600px;
-        margin: 20px auto;
-        position: relative;
-      }
-
-      .syntax-header {
-        background-color: var(--syntax-header-bg);
-        color: var(--syntax-header-color);
-        padding: 8px 16px;
-        font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .copy-button {
-        background-color: var(--button-bg);
-        color: var(--button-color);
-        border: none;
-        padding: 5px 10px;
-        cursor: pointer;
-        border-radius: 4px;
-        font-size: 14px;
-      }
-
-      .copy-button:hover {
-        background-color: var(--button-hover-bg);
-      }
-
-      pre {
-        margin: 0;
-        padding: 16px;
-        background-color: var(--pre-bg);
-        overflow-x: auto;
-      }
-
-      code {
-        color: var(--code-color);
-        font-family: "Courier New", Courier, monospace;
-        display: block;
-        white-space: pre;
-      }
-
-      .Run_Aniket > a {
-        text-decoration: none;
-        color: #fff;
-      }
-
-      .Run_Aniket {
-        color: #fff;
-        padding: 7px 15px;
-        background-color: rgb(47, 47, 248);
-        border-radius: 8px;
-      }
-
-      /* Light Mode Variables */
-      :root {
-        --background-color: #ffffff;
-        --text-color: #000000;
-        --link-color: #007bff;
-        --syntax-box-bg: #f5f5f5;
-        --syntax-header-bg: #eaeaea;
-        --syntax-header-color: #333;
-        --button-bg: #ddd;
-        --button-color: #333;
-        --button-hover-bg: #ccc;
-        --pre-bg: #ffffff;
-        --code-color: #333;
-      }
-
-      /* Dark Mode Variables */
-      body.dark-mode {
-        --background-color: #121212;
-        --text-color: #ffffff;
-        --link-color: #82aaff;
-        --syntax-box-bg: #2d2d2d;
-        --syntax-header-bg: #252526;
-        --syntax-header-color: #d7ba7d;
-        --button-bg: #444;
-        --button-color: #d7ba7d;
-        --button-hover-bg: #666;
-        --pre-bg: #1e1e1e;
-        --code-color: #d4d4d4;
-      }
-    </style>
+<link rel="stylesheet" href="./doc_style.css">
   </head>
   <body>
     <nav>
@@ -174,10 +37,11 @@
           <li><a href="./veriable.html">Variables</a></li>
           <li><a href="./Array.html">Array</a></li>
           <li><a href="./String.html">String</a></li>
-          <li><a href="">Conditional Operator</a></li>
-          <li><a href="">Loop</a></li>
+          <li><a href="Conditional.html">Conditional Operator</a></li>
+          <li><a href="loop.html">Loop</a></li>
           <li><a href="./int_fun.html">Intrger Functions</a></li>
           <li><a href="./highorde.html">Higher Order Functions</a></li>
+          <li><a href="./sp.html">Special Functions</a></li>
         </ul>
       </div>
       <div>
