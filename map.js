@@ -1,4 +1,4 @@
-function BhaiMap() {
+function Map() {
     this.items = {};  // Use an object to store key-value pairs
     this.size = 0;    // Keep track of the number of entries in the map
   }
