@@ -470,14 +470,14 @@ if (!Array.prototype.Reduce) {
 
 
 
-// every function
+// VSEvery function
 
 
-// // Polyfill for Array.prototype.bhaiEvery
-if (!Array.prototype.Every) {
-  Array.prototype.Every = function(callback, thisArg) {
+// // Polyfill for Array.prototype.bhaiVSEvery
+if (!Array.prototype.VSEvery) {
+  Array.prototype.VSEvery = function(callback, thisArg) {
     if (this == null) {
-      throw new TypeError('Array.prototype.Every called on null or undefined');
+      throw new TypeError('Array.prototype.VSEvery called on null or undefined');
     }
     if (typeof callback !== 'function') {
       throw new TypeError(callback + ' is not a function');
@@ -503,8 +503,8 @@ if (!Array.prototype.Every) {
 
 // const numbers = [2, 4, 6, 8, 10];
 
-// // Use Every to check if all numbers are even
-// const allEven = numbers.Every(function(number) {
+// // Use VSEvery to check if all numbers are even
+// const allEven = numbers.VSEvery(function(number) {
 //   return number % 2 === 0;
 // });
 
@@ -512,8 +512,8 @@ if (!Array.prototype.Every) {
 
 // const mixedNumbers = [1, 2, 3, 4, 5];
 
-// // Use Every to check if all numbers are greater than 0
-// const allPositive = mixedNumbers.Every(function(number) {
+// // Use VSEvery to check if all numbers are greater than 0
+// const allPositive = mixedNumbers.VSEvery(function(number) {
 //   return number > 0;
 // });
 
@@ -521,13 +521,13 @@ if (!Array.prototype.Every) {
 
 
 
-//  some function
+//  VSSome function
 
-// // Polyfill for Array.prototype.Some
-if (!Array.prototype.Some) {
-  Array.prototype.Some = function(callback, thisArg) {
+// // Polyfill for Array.prototype.VSSome
+if (!Array.prototype.VSSome) {
+  Array.prototype.VSSome = function(callback, thisArg) {
     if (this == null) {
-      throw new TypeError('Array.prototype.Some called on null or undefined');
+      throw new TypeError('Array.prototype.VSSome called on null or undefined');
     }
     if (typeof callback !== 'function') {
       throw new TypeError(callback + ' is not a function');
@@ -553,8 +553,8 @@ if (!Array.prototype.Some) {
 
 // const numbers = [1, 3, 5, 7, 9];
 
-// // Use Some to check if there is any even number
-// const hasEvenNumber = numbers.Some(function(number) {
+// // Use VSSome to check if there is any even number
+// const hasEvenNumber = numbers.VSSome(function(number) {
 //   return number % 2 === 0;
 // });
 
@@ -562,8 +562,8 @@ if (!Array.prototype.Some) {
 
 // const mixedNumbers = [1, 2, 3, 4, 5];
 
-// // Use Some to check if there is any number greater than 4
-// const hasGreaterThanFour = mixedNumbers.Some(function(number) {
+// // Use VSSome to check if there is any number greater than 4
+// const hasGreaterThanFour = mixedNumbers.VSSome(function(number) {
 //   return number > 4;
 // });
 
@@ -605,14 +605,14 @@ if (!String.prototype.stringLength) {
 
 
 
-// charAt
+// VSVSCharAt
 
 
-// // Polyfill for String.prototype.bhaiCharAt
-if (!String.prototype.bhaiCharAt) {
-  String.prototype.CharAt = function(index) {
+// // Polyfill for String.prototype.bhaiVSCharAt
+if (!String.prototype.VSCharAt) {
+  String.prototype.VSCharAt = function(index) {
     if (this == null) {
-      throw new TypeError('String.prototype.CharAt called on null or undefined');
+      throw new TypeError('String.prototype.VSCharAt called on null or undefined');
     }
 
     const str = String(this);
@@ -632,28 +632,28 @@ if (!String.prototype.bhaiCharAt) {
 // // how to use
 // const str = "Hello, World!";
 
-// // Use CharAt to get the character at a specific index
-// const charAt5 = str.CharAt(5);
-// const charAt11 = str.CharAt(11);
+// // Use VSCharAt to get the character at a specific index
+// const VSCharAt5 = str.VSCharAt(5);
+// const VSCharAt11 = str.VSCharAt(11);
 
-// console.log(charAt5);  // Output: ","
-// console.log(charAt11); // Output: "d"
+// console.log(VSCharAt5);  // Output: ","
+// console.log(VSCharAt11); // Output: "d"
 
 // // Index out of range example
-// const charAt20 = str.CharAt(20);
+// const VSCharAt20 = str.VSCharAt(20);
 
-// console.log(charAt20); // Output: ""
-
-
-
-// lastIndexOf 
+// console.log(VSCharAt20); // Output: ""
 
 
-// // Polyfill for String.prototype.bhaiLastIndexOf
-if (!String.prototype.LastIndexOf) {
-  String.prototype.LastIndexOf = function(searchString, position) {
+
+// VSLastIndexOf 
+
+
+// // Polyfill for String.prototype.bhaiVSLastIndexOf
+if (!String.prototype.VSLastIndexOf) {
+  String.prototype.VSLastIndexOf = function(searchString, position) {
     if (this == null) {
-      throw new TypeError('String.prototype.LastIndexOf called on null or undefined');
+      throw new TypeError('String.prototype.VSLastIndexOf called on null or undefined');
     }
 
     const str = String(this);
@@ -683,27 +683,27 @@ if (!String.prototype.LastIndexOf) {
 
 // const str = "Hello, World! Hello!";
 
-// // Use LastIndexOf to find the last occurrence of a substring
-// const lastIndexOfHello = str.LastIndexOf("Hello");
-// const lastIndexOfWorld = str.LastIndexOf("World");
+// // Use VSLastIndexOf to find the last occurrence of a substring
+// const VSLastIndexOfHello = str.VSLastIndexOf("Hello");
+// const VSLastIndexOfWorld = str.VSLastIndexOf("World");
 
-// console.log(lastIndexOfHello); // Output: 14 (the last "Hello" starts at index 14)
-// console.log(lastIndexOfWorld); // Output: 7 (the "World" starts at index 7)
+// console.log(VSLastIndexOfHello); // Output: 14 (the last "Hello" starts at index 14)
+// console.log(VSLastIndexOfWorld); // Output: 7 (the "World" starts at index 7)
 
 // // Search for a substring that doesn't exist
-// const lastIndexOfTest = str.LastIndexOf("Test");
+// const VSLastIndexOfTest = str.VSLastIndexOf("Test");
 
-// console.log(lastIndexOfTest); // Output: -1
+// console.log(VSLastIndexOfTest); // Output: -1
 
 
 
-// touppercase
+// VSToUpperCase
 
-// // Polyfill for String.prototype.ToUpperCase
-if (!String.prototype.ToUpperCase) {
-  String.prototype.ToUpperCase = function() {
+// // Polyfill for String.prototype.VSToUpperCase
+if (!String.prototype.VSToUpperCase) {
+  String.prototype.VSToUpperCase = function() {
     if (this == null) {
-      throw new TypeError('String.prototype.ToUpperCase called on null or undefined');
+      throw new TypeError('String.prototype.VSToUpperCase called on null or undefined');
     }
 
     const str = String(this);
@@ -733,8 +733,8 @@ if (!String.prototype.ToUpperCase) {
 
 // const str = "Hello, World!";
 
-// // Use ToUpperCase to convert the string to uppercase
-// const upperStr = str.ToUpperCase();
+// // Use VSToUpperCase to convert the string to uppercase
+// const upperStr = str.VSToUpperCase();
 
 // console.log(upperStr); // Output: "HELLO, WORLD!"
 
@@ -745,11 +745,11 @@ if (!String.prototype.ToUpperCase) {
 
 
 
-// // Polyfill for String.prototype.bhaiToLowerCase
-if (!String.prototype.ToLowerCase) {
-  String.prototype.ToLowerCase = function() {
+// // Polyfill for String.prototype.bhaiVSToLowerCase
+if (!String.prototype.VSToLowerCase) {
+  String.prototype.VSToLowerCase = function() {
     if (this == null) {
-      throw new TypeError('String.prototype.ToLowerCase called on null or undefined');
+      throw new TypeError('String.prototype.VSToLowerCase called on null or undefined');
     }
 
     const str = String(this);
@@ -780,20 +780,20 @@ if (!String.prototype.ToLowerCase) {
 
 // const str = "Hello, World!";
 
-// // Use ToLowerCase to convert the string to lowercase
-// const lowerStr = str.ToLowerCase();
+// // Use VSToLowerCase to convert the string to lowercase
+// const lowerStr = str.VSToLowerCase();
 
 // console.log(lowerStr); // Output: "hello, world!"
 
 
 
-//concat
+//VSConcat
 
-// // Polyfill for String.prototype.bhaiConcat
-if (!String.prototype.Concat) {
-  String.prototype.Concat = function(...strings) {
+// // Polyfill for String.prototype.bhaiVSConcat
+if (!String.prototype.VSConcat) {
+  String.prototype.VSConcat = function(...strings) {
     if (this == null) {
-      throw new TypeError('String.prototype.Concat called on null or undefined');
+      throw new TypeError('String.prototype.VSConcat called on null or undefined');
     }
 
     // Convert the context to a string
@@ -818,8 +818,8 @@ if (!String.prototype.Concat) {
 // const str3 = "World!";
 // const str4 = " How are you?";
 
-// // // Use Concat to concatenate multiple strings
-// const result = str1.Concat(str2, str3, str4);
+// // // Use VSConcat to VSConcatenate multiple strings
+// const result = str1.VSConcat(str2, str3, str4);
 
 // console.log(result); // Output: "Hello World! How are you?"
 
@@ -828,8 +828,8 @@ if (!String.prototype.Concat) {
 // dec str3 = "World!";
 // dec str4 = " How are you?";
 
-// // // Use Concat to concatenate multiple strings
-// dec result = str1.Concat(str2, str3, str4);
+// // // Use VSConcat to VSConcatenate multiple strings
+// dec result = str1.VSConcat(str2, str3, str4);
 
 // console.log(result); // Output: "Hello World! How are you?"
 
@@ -1268,7 +1268,7 @@ if (!String.prototype.isAnagram) {
           throw new TypeError('String.prototype.isAnagram called on null or undefined');
       }
 
-      const normalize = str => str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+      const normalize = str => str.replace(/[^\w]/g, '').VSToLowerCase().split('').sort().join('');
       return normalize(this) === normalize(otherString);
   };
 }
