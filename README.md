@@ -1,7 +1,7 @@
 # Pixel-pole-vault_021
 
 
-VisionScript
+VisionScript.
 VisionScript is a powerful new programming language designed to simplify complex operations and enhance developer productivity. It merges the ease of high-level scripting languages with the performance and control of lower-level languages, providing an intuitive syntax and rich feature set that make it stand out from existing programming languages.
 
 Why VisionScript?
