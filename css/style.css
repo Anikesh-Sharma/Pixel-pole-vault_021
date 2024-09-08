@@ -467,39 +467,6 @@
     position: relative;
 }
 
-/* Interactive border effect */
-.form-box:before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #007bff, #00d4ff, #28a745, #ffc107);
-    z-index: -1;
-    border-radius: 15px;
-    background-size: 300% 300%;
-    animation: borderAnimation 6s ease infinite;
-}
-
-@keyframes borderAnimation {
-    0% {
-        background-position: 0 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0 50%;
-    }
-}
-
-/* Hover effect for form */
-.form-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
 /* Dark mode styles */
 body.dark-mode {
     background-color: #121212;
