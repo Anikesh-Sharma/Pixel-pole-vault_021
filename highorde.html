@@ -71,13 +71,13 @@
             VisionScript
             <div>
               <button class="copy-button" onclick="copyCode(this)">Copy</button>
-              <span class="Run_Aniket"><a href="">Try This</a></span>
+              <span class="Run_Aniket"><a href="editor.html">Try This</a></span>
             </div>
           </div>
           <pre><code class="language-javascript">
-// fix numbers = [1, 2, 3, 4, 5, 6];
+fix numbers = [1, 2, 3, 4, 5, 6];
 // Use Filter to filter out even numbers
-fix evenNumbers = numbers.Filter(function(number) {
+evenNumbers = numbers.Filter(function(number) {
     return number % 2 === 0;
 });
 console.log(evenNumbers); // Output: [2, 4, 6]
@@ -100,11 +100,11 @@ console.log(evenNumbers); // Output: [2, 4, 6]
             VisionScript
             <div>
               <button class="copy-button" onclick="copyCode(this)">Copy</button>
-              <span class="Run_Aniket"><a href="">Try This</a></span>
+              <span class="Run_Aniket"><a href="editor.html">Try This</a></span>
             </div>
           </div>
           <pre><code class="language-javascript">
-// fix numbers = [5, 3, 8, 1, 2];
+fix numbers = [5, 3, 8, 1, 2];
 // Use Sort to sort numbers in ascending order
 numbers.Sort();
 console.log(numbers); // Output: [1, 2, 3, 5, 8]
@@ -133,13 +133,13 @@ console.log(numbers); // Output: [8, 5, 3, 2, 1]
             VisionScript
             <div>
               <button class="copy-button" onclick="copyCode(this)">Copy</button>
-              <span class="Run_Aniket"><a href="">Try This</a></span>
+              <span class="Run_Aniket"><a href="editor.html">Try This</a></span>
             </div>
           </div>
           <pre><code class="language-javascript">
-// fix numbers = [5, 12, 8, 130, 44];
+fix numbers = [5, 12, 8, 130, 44];
 // Use Find to find the first number greater than 10
-fix found = numbers.Find(function(number) {
+found = numbers.Find(function(number) {
     return number > 10;
 });
 console.log(found); // Output: 12
@@ -163,13 +163,13 @@ console.log(found); // Output: 12
             VisionScript
             <div>
               <button class="copy-button" onclick="copyCode(this)">Copy</button>
-              <span class="Run_Aniket"><a href="">Try This</a></span>
+              <span class="Run_Aniket"><a href="editor.html">Try This</a></span>
             </div>
           </div>
           <pre><code class="language-javascript">
-// fix numbers = [1, 2, 3, 4, 5];
+fix numbers = [1, 2, 3, 4, 5];
 // Check if array includes the number 3
-fix includesThree = numbers.Includes(3);
+includesThree = numbers.Includes(3);
 console.log(includesThree); // Output: true
           </code></pre>
         </div>
@@ -191,13 +191,13 @@ console.log(includesThree); // Output: true
             VisionScript
             <div>
               <button class="copy-button" onclick="copyCode(this)">Copy</button>
-              <span class="Run_Aniket"><a href="">Try This</a></span>
+              <span class="Run_Aniket"><a href="editor.html">Try This</a></span>
             </div>
           </div>
           <pre><code class="language-javascript">
-// fix numbers = [1, 2, 3, 4, 5];
+fix numbers = [1, 2, 3, 4, 5];
 // Use Reduces to calculate the sum of all numbers
-fix sum = numbers.Reduces(function(accumulator, currentValue) {
+sum = numbers.Reduce(function(accumulator, currentValue) {
     return accumulator + currentValue;
 }, 0);
 console.log(sum); // Output: 15
@@ -205,8 +205,6 @@ console.log(sum); // Output: 15
         </div>
       </div>
     </div>
-  </body>
-  <script src="./doc.js"></script>
-  
-  </script>
+    </body>
+  <script src="./doc.js"></script>  
 </html>

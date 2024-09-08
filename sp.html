@@ -108,7 +108,7 @@
     
     fix mixedNumbers = [1, 2, 3, 4, 5];
     // Use Some to check if there is any number greater than 4
-    const hasGreaterThanFour = mixedNumbers.VSSome(function(number) {
+    blo hasGreaterThanFour = mixedNumbers.VSSome(function(number) {
         return number > 4;
     });
     console.log(hasGreaterThanFour); // Output: true
@@ -232,46 +232,53 @@
             </div>
           </div>
         </div>
+        </div>
+        <script>
+          // Function to copy code from the code block when the button is clicked
+function copyCode(button) {
+  // Find the nearest code block within the .syntax-box container
+  const codeBlock = button.closest(".syntax-box").querySelector("code").innerText;
+  
+  // Copy the text content of the code block to the clipboard
+  navigator.clipboard
+    .writeText(codeBlock)
+    .then(() => {
+      // Provide feedback to the user by changing button text temporarily
+      button.innerText = "Copied!";
+      setTimeout(() => {
+        button.innerText = "Copy";
+      }, 2000); // Reset button text after 2 seconds
+    })
+    .catch((err) => {
+      console.error("Failed to copy text: ", err);
+    });
+}
 
-    <script>
-      function copyCode(button) {
-        const codeBlock = button
-          .closest(".syntax-box")
-          .querySelector("code").innerText;
-        navigator.clipboard
-          .writeText(codeBlock)
-          .then(() => {
-            button.innerText = "Copied!";
-            setTimeout(() => {
-              button.innerText = "Copy";
-            }, 2000);
-          })
-          .catch((err) => {
-            console.error("Failed to copy text: ", err);
-          });
-      }
+// Reference to the theme toggle checkbox
+const toggleSwitch = document.getElementById("themeToggle");
 
-      const toggleSwitch = document.getElementById("themeToggle");
+// Event listener to handle page load and apply the saved theme mode
+document.addEventListener("DOMContentLoaded", (event) => {
+  const darkMode = localStorage.getItem("dark-mode");
+  if (darkMode === "enabled") {
+    document.body.classList.add("dark-mode"); // Enable dark mode
+    toggleSwitch.checked = true; // Set the toggle switch to checked
+  } else {
+    document.body.classList.remove("dark-mode"); // Ensure dark mode is disabled
+  }
+});
 
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const darkMode = localStorage.getItem("dark-mode");
-        if (darkMode === "enabled") {
-          document.body.classList.add("dark-mode");
-          toggleSwitch.checked = true;
-        } else {
-          document.body.classList.remove("dark-mode");
-        }
-      });
+// Event listener for the theme toggle switch
+toggleSwitch.addEventListener("change", function () {
+  if (this.checked) {
+    document.body.classList.add("dark-mode"); // Add dark mode class
+    localStorage.setItem("dark-mode", "enabled"); // Save the setting in local storage
+  } else {
+    document.body.classList.remove("dark-mode"); // Remove dark mode class
+    localStorage.setItem("dark-mode", "disabled"); // Save the setting in local storage
+  }
+});
 
-      toggleSwitch.addEventListener("change", function () {
-        if (this.checked) {
-          document.body.classList.add("dark-mode");
-          localStorage.setItem("dark-mode", "enabled");
-        } else {
-          document.body.classList.remove("dark-mode");
-          localStorage.setItem("dark-mode", "disabled");
-        }
-      });
-    </script>
+        </script>
   </body>
 </html>
