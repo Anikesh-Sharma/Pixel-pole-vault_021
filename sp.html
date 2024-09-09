@@ -72,14 +72,14 @@
               <pre><code class="language-javascript">
     fix numbers = [2, 4, 6, 8, 10];
     // Use Every to check if all numbers are even
-    fix allEven = numbers.VSEvery(function(number) {
+    allEven = numbers.VSEvery(function(number) {
         return number % 2 === 0;
     });
     console.log(allEven); // Output: true
     
     fix mixedNumbers = [1, 2, 3, 4, 5];
     // Use Every to check if all numbers are greater than 0
-    fix allPositive = mixedNumbers.VSEvery(function(number) {
+   allPositive = mixedNumbers.VSEvery(function(number) {
         return number > 0;
     });
     console.log(allPositive); // Output: true
@@ -101,14 +101,14 @@
               <pre><code class="language-javascript">
     fix numbers = [1, 3, 5, 7, 9];
     // Use Some to check if there is any even number
-    fix hasEvenNumber = numbers.VSSome(function(number) {
+    hasEvenNumber = numbers.VSSome(function(number) {
         return number % 2 === 0;
     });
     console.log(hasEvenNumber); // Output: false
     
     fix mixedNumbers = [1, 2, 3, 4, 5];
     // Use Some to check if there is any number greater than 4
-    blo hasGreaterThanFour = mixedNumbers.VSSome(function(number) {
+    hasGreaterThanFour = mixedNumbers.VSSome(function(number) {
         return number > 4;
     });
     console.log(hasGreaterThanFour); // Output: true
@@ -228,6 +228,52 @@
     // Use Concat to concatenate multiple strings
     fix result = str1.VSConcat(str2, str3, str4);
     console.log(result); // Output: "Hello World! How are you?"
+              </code></pre>
+            </div>
+          
+            <!-- started adding from here -->
+
+            <h4>6. VSisAnagram()</h4>
+            <p>
+              <b>Description:</b> The <code>VSisAnagram()</code> method Checks if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another.
+              
+            </p>
+            <div class="syntax-box">
+              <div class="syntax-header">
+                VisionScript
+                <div>
+                  <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                  <span class="Run_Aniket"><a href="editor.html">Try Yourself</a></span>
+                </div>
+              </div>
+              <pre><code class="language-javascript">
+    blo str1 = "listen";
+    blo str2 = "silent";
+    blo result = str1.VSisAnagram(str2); 
+    console.log(result)
+    // result is true
+    
+              </code></pre>
+            </div>
+            <h4>7. VScharacterFrequency()</h4>
+            <p>
+              <b>Description:</b> The <code>VScharacterFrequency()</code> returns a frequency map of characters in a string. The method counts how many times each character appears in the string and returns this information as an object (or map).
+              
+            </p>
+            <div class="syntax-box">
+              <div class="syntax-header">
+                VisionScript
+                <div>
+                  <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                  <span class="Run_Aniket"><a href="editor.html">Try Yourself</a></span>
+                </div>
+              </div>
+              <pre><code class="language-javascript">
+    blo str = "hello world";
+    blo frequencyMap = str.characterFrequency();
+    // frequencyMap = { h: 1, e: 1, l: 3, o: 2, ' ': 1, w: 1, r: 1, d: 1 }
+                
+    
               </code></pre>
             </div>
           </div>

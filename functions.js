@@ -122,151 +122,261 @@ if (!Array.prototype.lowerBound) {
 //  * @returns {Array<Array<any>>} - The created matrix.
  
 
-// function createMatrix(m, n, sequenceTypeOrArray = 'zeros', traversalType = 'none') {
-//   // Ensure the dimensions are positive integers
-//   if (m <= 0 || n <= 0) {
-//       throw new Error('Both dimensions must be positive integers');
-//   }
+function createMatrix(m, n, sequenceTypeOrArray = 'zeros', traversalType = 'none') {
+  // Ensure the dimensions are positive integers
+  if (m <= 0 || n <= 0) {
+      throw new Error('Both dimensions must be positive integers');
+  }
 
-//   const matrix = Array.from({ length: m }, () => Array(n).fill(0));
-//   let sequenceType;
-//   let customNumbers = [];
+  const matrix = Array.from({ length: m }, () => Array(n).fill(0));
+  let sequenceType;
+  let customNumbers = [];
 
-//   // Check if the third argument is an array (for custom numbers)
-//   if (Array.isArray(sequenceTypeOrArray)) {
-//       sequenceType = 'custom';
-//       customNumbers = sequenceTypeOrArray;
-//   } else {
-//       sequenceType = sequenceTypeOrArray;
-//   }
+  // Check if the third argument is an array (for custom numbers)
+  if (Array.isArray(sequenceTypeOrArray)) {
+      sequenceType = 'custom';
+      customNumbers = sequenceTypeOrArray;
+  } else {
+      sequenceType = sequenceTypeOrArray;
+  }
 
-//   let currentNumber = {
-//       zeros: 0,
-//       natural: 1,
-//       even: 2,
-//       odd: 1,
-//       prime: 1,
-//       custom: 0 // Index for custom numbers
-//   };
+  let currentNumber = {
+      zeros: 0,
+      natural: 1,
+      even: 2,
+      odd: 1,
+      prime: 1,
+      custom: 0 // Index for custom numbers
+  };
 
-//   const generateNumber = {
-//       zeros: () => 0,
-//       natural: () => currentNumber.natural++,
-//       even: () => {
-//           const num = currentNumber.even;
-//           currentNumber.even += 2;
-//           return num;
-//       },
-//       odd: () => {
-//           const num = currentNumber.odd;
-//           currentNumber.odd += 2;
-//           return num;
-//       },
-//       prime: () => {
-//           while (true) {
-//               currentNumber.prime++;
-//               if (isPrime(currentNumber.prime)) return currentNumber.prime;
-//           }
-//       },
-//       custom: () => {
-//           if (currentNumber.custom < customNumbers.length) {
-//               return customNumbers[currentNumber.custom++];
-//           } else {
-//               throw new Error('Not enough custom numbers provided');
-//           }
-//       },
-//       default: () => sequenceType // Default case for custom characters or numbers
-//   };
+  const generateNumber = {
+      zeros: () => 0,
+      natural: () => currentNumber.natural++,
+      even: () => {
+          const num = currentNumber.even;
+          currentNumber.even += 2;
+          return num;
+      },
+      odd: () => {
+          const num = currentNumber.odd;
+          currentNumber.odd += 2;
+          return num;
+      },
+      prime: () => {
+          while (true) {
+              currentNumber.prime++;
+              if (isPrime(currentNumber.prime)) return currentNumber.prime;
+          }
+      },
+      custom: () => {
+          if (currentNumber.custom < customNumbers.length) {
+              return customNumbers[currentNumber.custom++];
+          } else {
+              throw new Error('Not enough custom numbers provided');
+          }
+      },
+      default: () => sequenceType // Default case for custom characters or numbers
+  };
 
-//   function isPrime(num) {
-//       if (num < 2) return false;
-//       for (let i = 2; i <= Math.sqrt(num); i++) {
-//           if (num % i === 0) return false;
-//       }
-//       return true;
-//   }
+  function isPrime(num) {
+      if (num < 2) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) {
+          if (num % i === 0) return false;
+      }
+      return true;
+  }
 
-//   // Fill the matrix based on the selected sequence type
-//   function fillMatrix() {
-//       for (let i = 0; i < m; i++) {
-//           for (let j = 0; j < n; j++) {
-//               const generator = generateNumber[sequenceType] || generateNumber.default;
-//               matrix[i][j] = generator();
-//           }
-//       }
-//   }
+  // Fill the matrix based on the selected sequence type
+  function fillMatrix() {
+      for (let i = 0; i < m; i++) {
+          for (let j = 0; j < n; j++) {
+              const generator = generateNumber[sequenceType] || generateNumber.default;
+              matrix[i][j] = generator();
+          }
+      }
+  }
 
   // Apply traversal patterns if specified and return as a flat array
-//   function applyTraversal() {
-//       const flattened = matrix.flat();
-//       const result = [];
-//       let index = 0;
+  function applyTraversal() {
+      const flattened = matrix.flat();
+      const result = [];
+      let index = 0;
 
-//       if (traversalType === 'z') {
-//           // Top row (left to right)
-//           for (let j = 0; j < n; j++) {
-//               result.push(flattened[index++]);
-//           }
+      if (traversalType === 'z') {
+          // Top row (left to right)
+          for (let j = 0; j < n; j++) {
+              result.push(flattened[index++]);
+          }
 
-//           // Diagonal (top-right to bottom-left)
-//           for (let i = 1; i < Math.min(m, n); i++) {
-//               result.push(flattened[i * n + (n - i - 1)]);
-//           }
+          // Diagonal (top-right to bottom-left)
+          for (let i = 1; i < Math.min(m, n); i++) {
+              result.push(flattened[i * n + (n - i - 1)]);
+          }
 
-//           // Bottom row (left to right)
-//           if (m > 1) {
-//               for (let j = 1; j < n; j++) {
-//                   result.push(flattened[(m - 1) * n + j]);
-//               }
-//           }
-//       } else if (traversalType === 'spiral') {
-//           let left = 0, right = n - 1, top = 0, bottom = m - 1;
-//           while (left <= right && top <= bottom) {
-//               // Top row
-//               for (let j = left; j <= right; j++) {
-//                   result.push(flattened[top * n + j]);
-//               }
-//               top++;
+          // Bottom row (left to right)
+          if (m > 1) {
+              for (let j = 1; j < n; j++) {
+                  result.push(flattened[(m - 1) * n + j]);
+              }
+          }
+      } else if (traversalType === 'spiral') {
+          let left = 0, right = n - 1, top = 0, bottom = m - 1;
+          while (left <= right && top <= bottom) {
+              // Top row
+              for (let j = left; j <= right; j++) {
+                  result.push(flattened[top * n + j]);
+              }
+              top++;
 
-//               // Right column
-//               for (let i = top; i <= bottom; i++) {
-//                   result.push(flattened[i * n + right]);
-//               }
-//               right--;
+              // Right column
+              for (let i = top; i <= bottom; i++) {
+                  result.push(flattened[i * n + right]);
+              }
+              right--;
 
-//               // Bottom row
-//               if (top <= bottom) {
-//                   for (let j = right; j >= left; j--) {
-//                       result.push(flattened[bottom * n + j]);
-//                   }
-//                   bottom--;
-//               }
+              // Bottom row
+              if (top <= bottom) {
+                  for (let j = right; j >= left; j--) {
+                      result.push(flattened[bottom * n + j]);
+                  }
+                  bottom--;
+              }
 
-//               // Left column
-//               if (left <= right) {
-//                   for (let i = bottom; i >= top; i--) {
-//                       result.push(flattened[i * n + left]);
-//                   }
-//                   left++;
-//               }
-//           }
-//       }
+              // Left column
+              if (left <= right) {
+                  for (let i = bottom; i >= top; i--) {
+                      result.push(flattened[i * n + left]);
+                  }
+                  left++;
+              }
+          }
+      }
 
-//       return result;
+      return result;
+  }
+
+  fillMatrix();
+  if (traversalType !== 'none') {
+      return applyTraversal();
+  }
+
+  return matrix.flat();
+}
+
+
+
+
+// // Matrix loop parsing function
+// function parseMatrixLoops(code) {
+//   const matrixLoopRegex = /for\s*\(\s*(blo)\s+(\w+)\s*=\s*(\d+)\s*to\s*(\w+)\s*\)\s*\{\s*for\s*\(\s*(blo)\s+(\w+)\s*=\s*(\d+)\s*to\s*(\w+)\s*\)\s*\{/g;
+//   let match;
+//   let jsCode = '';
+//   let lastIndex = 0;
+
+//   while ((match = matrixLoopRegex.exec(code)) !== null) {
+//     const rowType = match[1]; // 'blo'
+//     const rowVariable = match[2]; // i
+//     const startRowValue = match[3]; // 0
+//     const rowEndValue = match[4]; // 2
+
+//     const colType = match[5]; // 'blo'
+//     const colVariable = match[6]; // j
+//     const startColValue = match[7]; // 0
+//     const colEndValue = match[8]; // 2
+
+//     let jsRowDeclaration = `let ${rowVariable}`;
+//     let jsColDeclaration = `let ${colVariable}`;
+
+//     // JS equivalent loop to parse
+//     const jsMatrixLoop = `for (${jsRowDeclaration} = ${startRowValue}; ${rowVariable} <= ${rowEndValue}; ${rowVariable}++) {
+//         for (${jsColDeclaration} = ${startColValue}; ${colVariable} <= ${colEndValue}; ${colVariable}++) {
+//             let element = matrix[${rowVariable}][${colVariable}];
+//             console.log(element);
+//         }
+//     }`;
+
+//     jsCode += code.substring(lastIndex, match.index) + jsMatrixLoop;
+//     lastIndex = matrixLoopRegex.lastIndex;
 //   }
 
-//   fillMatrix();
-//   if (traversalType !== 'none') {
-//       return applyTraversal();
-//   }
+//   jsCode += code.substring(lastIndex);
 
-//   return matrix.flat();
+//   return jsCode;
 // }
+
+// // Custom syntax to create and iterate over a 3x3 matrix
+// let code = `
+// matrix(3, 3); // Create a 3x3 matrix
+// for (blo i = 0 to 2) { // Loop through rows
+//   for (blo j = 0 to 2) { // Loop through columns
+//     matrix[i][j] = i * 3 + j + 1; // Fill matrix with values 1 to 9
+//   }
+// }
+
+// for (blo i = 0 to 2) { // Loop through rows
+//   for (blo j = 0 to 2) { // Loop through columns
+//     console.log(matrix[i][j]); // Output each element of the matrix
+//   }
+// }
+// `;
+
+// // Example usage
+// let matrix = createMatrix(3, 3); // Create the 3x3 matrix
+// let parsedCode = parseMatrixLoops(code);
+// eval(parsedCode); // Evaluate and run the parsed code
+
+// console.log(matrix); // Output the matrix to see its final form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // // Example usage
 // console.log(createMatrix(3, 3, 'natural', 'z'));    // Output: [1, 2, 3, 5, 7, 8, 9]
 // console.log(createMatrix(3, 3, 'natural', 'spiral')); // Output: [1, 2, 3, 6, 9, 8, 7, 4, 5]
-
+if (!String.prototype.VScharacterFrequency) {
+  String.prototype.VScharacterFrequency = function() {
+    let frequencyMap = {};
+    for (let char of this) {
+      if (frequencyMap[char]) {
+        frequencyMap[char]++;
+      } else {
+        frequencyMap[char] = 1;
+      }
+    }
+    return frequencyMap;
+  };
+}
+// Example usage
+// blo str = "hello world";
+// blo frequencyMap = str.characterFrequency();
+// console.log(frequencyMap); 
+// Output: { h: 1, e: 1, l: 3, o: 2, ' ': 1, w: 1, r: 1, d: 1 }
 
 // filter function
 
@@ -1066,8 +1176,8 @@ const Operators = {
   // Example usage:
   
   // Arithmetic
-//   console.log(Operators.Add(5, 3)); // Output: 8
-//   console.log(Operators.Divide(10, 2)); // Output: 5
+  // console.log(Operators.Add(5, 3)); // Output: 8
+  // console.log(Operators.Divide(10, 2)); // Output: 5
   
 //   // Comparison
 //   console.log(Operators.GreaterThan(5, 3)); // Output: true
@@ -1262,10 +1372,10 @@ if (!String.prototype.consonantCount) {
 // Implementation:
 // javascript
 // Copy code
-if (!String.prototype.isAnagram) {
-  String.prototype.isAnagram = function(otherString) {
+if (!String.prototype.VSisAnagram) {
+  String.prototype.VSisAnagram = function(otherString) {
       if (this == null || otherString == null) {
-          throw new TypeError('String.prototype.isAnagram called on null or undefined');
+          throw new TypeError('String.prototype.VSisAnagram called on null or undefined');
       }
 
       const normalize = str => str.replace(/[^\w]/g, '').VSToLowerCase().split('').sort().join('');
@@ -1276,7 +1386,7 @@ if (!String.prototype.isAnagram) {
 // Example usage:
 // let str1 = "listen";
 // let str2 = "silent";
-// console.log(str1.isAnagram(str2)); // Output: true
+// console.log(str1.VSisAnagram(str2)); // Output: true
 
 
 // intiger methods 
